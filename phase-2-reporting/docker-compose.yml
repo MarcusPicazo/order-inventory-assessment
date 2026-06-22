@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  reporting:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/orderdb?schema=public
+      PORT: "3001"
+    ports:
+      - "3001:3001"
+    networks:
+      - phase1-network
+
+networks:
+  phase1-network:
+    external: true
+    name: phase-1-debugging_default
